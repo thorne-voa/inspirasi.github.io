@@ -1,0 +1,453 @@
+/* Styling untuk Navbar */
+nav {
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Posisi sticky untuk navbar */
+  top: 0; /* Menempel di bagian atas viewport */
+  z-index: 10; /* Menetapkan z-index agar berada di atas hero section */
+  transition: transform 0.3s ease; /* Transisi untuk efek scroll */
+}
+
+/* Styling untuk Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Tinggi hero section, disesuaikan dengan kebutuhan */
+  background: url("../img/foto18.jpeg") no-repeat center center;
+  background-size: cover; /* Menjaga latar belakang agar mencakup seluruh area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Warna teks agar kontras dengan latar belakang */
+  overflow: hidden;
+  margin-top: 0; /* Pastikan hero section dimulai di bawah navbar */
+  z-index: 1; /* Menetapkan z-index lebih rendah dari navbar */
+}
+
+.hero-content {
+  display: flex;
+  align-items: center; /* Menyusun item secara vertikal di tengah */
+  justify-content: flex-start; /* Teks di kiri */
+  width: 90%;
+  max-width: 1200px; /* Lebar maksimum hero section */
+  padding: 0 20px; /* Padding di kiri dan kanan */
+}
+
+.hero-text {
+  max-width: 50%; /* Lebar maksimum teks, disesuaikan dengan kebutuhan */
+}
+
+.hero-text h1 {
+  font-size: 2.5em; /* Ukuran font judul */
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  font-size: 1.2em; /* Ukuran font paragraf */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh; /* Tinggi hero section pada layar kecil */
+  }
+
+  .hero-text h1 {
+    font-size: 2em; /* Ukuran font judul lebih kecil pada layar kecil */
+  }
+
+  .hero-text p {
+    font-size: 1em; /* Ukuran font paragraf lebih kecil pada layar kecil */
+  }
+}
+
+/* Modal background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal image */
+#modalImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Modal description */
+#modalDescription {
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Styling untuk Galeri Foto Baru */
+.new-gallery {
+  margin: 50px 0; /* Jarak atas dan bawah */
+}
+
+/* Styling untuk Galeri Foto Baru */
+.new-gallery {
+  margin: 50px 0; /* Jarak atas dan bawah dari elemen sebelumnya */
+}
+
+.new-gallery h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2em; /* Ukuran font yang lebih besar untuk judul */
+}
+
+.new-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Jarak antar gambar */
+  justify-content: center; /* Pusatkan gambar secara horizontal */
+}
+
+.new-photos img {
+  width: 100%;
+  max-width: 300px; /* Lebar maksimum gambar */
+  height: auto; /* Tinggi otomatis berdasarkan lebar */
+  object-fit: cover; /* Pastikan gambar menutupi area kontainer */
+  border-radius: 8px; /* Sudut membulat untuk gambar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk gambar */
+}
+
+/* Styling untuk Card Section */
+/* Styling untuk Card Section */
+.card {
+  display: flex;
+  align-items: center; /* Menyusun item secara vertikal di tengah */
+  justify-content: flex-start; /* Mulai dari kiri */
+  margin: 50px auto; /* Jarak atas dan bawah dan pusatkan card secara horizontal */
+  max-width: 800px; /* Lebar maksimum card */
+  width: 100%; /* Menyesuaikan lebar kontainer */
+  background-color: #fff; /* Warna latar belakang putih untuk card */
+  border-radius: 8px; /* Sudut membulat */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk card */
+  overflow: hidden; /* Menyembunyikan bagian yang melampaui batas card */
+}
+
+.image-content {
+  flex: 1;
+  max-width: 40%; /* Lebar maksimum gambar */
+  padding: 10px; /* Jarak di sekitar gambar */
+  margin-right: 20px; /* Jarak antara gambar dan teks, ditingkatkan dari 10px menjadi 20px */
+}
+
+.image-content img {
+  width: 100%;
+  max-width: 250px; /* Lebar maksimum gambar lebih kecil */
+  height: auto;
+  object-fit: cover; /* Menjaga proporsi gambar */
+  border-radius: 8px; /* Sudut membulat */
+}
+
+.text-content {
+  flex: 1;
+  max-width: 55%; /* Lebar maksimum teks */
+  padding: 15px; /* Padding di sekitar teks */
+  box-sizing: border-box; /* Termasuk padding dalam lebar elemen */
+}
+
+.text-content h2 {
+  margin-bottom: 10px; /* Jarak bawah judul lebih kecil */
+  color: #333;
+  font-size: 1.6em; /* Ukuran font judul lebih kecil */
+}
+
+.text-content p {
+  font-size: 0.9em; /* Ukuran font teks lebih kecil */
+  color: #666;
+  line-height: 1.5; /* Jarak antar baris lebih kecil */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; /* Mengubah arah flex menjadi kolom pada layar kecil */
+    text-align: center; /* Pusatkan teks pada layar kecil */
+    max-width: 100%; /* Menyesuaikan lebar card pada layar kecil */
+  }
+
+  .image-content {
+    max-width: 100%; /* Lebar maksimum gambar pada layar kecil */
+    margin-bottom: 10px; /* Jarak bawah gambar pada layar kecil */
+    margin-right: 0; /* Hilangkan margin kanan pada layar kecil */
+  }
+
+  .image-content img {
+    width: auto; /* Gambar tidak melebihi lebar kontainer */
+    max-width: 90%; /* Lebar maksimum gambar pada layar kecil */
+  }
+
+  .text-content {
+    max-width: 100%; /* Lebar maksimum teks pada layar kecil */
+    margin: 0; /* Hilangkan margin pada layar kecil */
+    padding: 10px; /* Padding lebih kecil pada layar kecil */
+  }
+}
+
+/* Styling untuk Bagian Tim */
+.team {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.team h2 {
+  font-size: 1.8em; /* Ukuran font judul lebih kecil */
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Jarak antar anggota tim lebih kecil */
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* Padding lebih kecil */
+  width: 100%;
+  max-width: 400px; /* Maksimal lebar untuk setiap anggota tim lebih kecil */
+}
+
+.team-member-content {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara foto dan teks lebih kecil */
+}
+
+.team-member-photo {
+  flex: 1;
+}
+
+.team-member-photo img {
+  width: 80px; /* Ukuran foto lebih kecil */
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%; /* Membuat gambar profil bulat */
+}
+
+.team-member-text {
+  flex: 2;
+  text-align: left; /* Teks diatur ke kiri */
+}
+
+.team-member h3 {
+  margin: 0 0 8px;
+  font-size: 1.1em; /* Ukuran font nama lebih kecil */
+  color: #333;
+}
+
+.team-member .role {
+  font-size: 0.9em; /* Ukuran font peran lebih kecil */
+  color: #666;
+}
+
+.team-member .description {
+  font-size: 0.8em; /* Ukuran font deskripsi lebih kecil */
+  color: #444;
+  margin-top: 8px;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .team-member-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .team-member-photo {
+    margin-bottom: 8px;
+  }
+
+  .team-member-photo img {
+    width: 60px; /* Ukuran foto lebih kecil untuk mobile */
+    height: 60px;
+  }
+
+  .team-member h3 {
+    font-size: 1em; /* Ukuran font nama lebih kecil untuk mobile */
+  }
+
+  .team-member .role {
+    font-size: 0.8em; /* Ukuran font peran lebih kecil untuk mobile */
+  }
+
+  .team-member .description {
+    font-size: 0.7em; /* Ukuran font deskripsi lebih kecil untuk mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .team-container {
+    gap: 5px; /* Jarak antar anggota tim pada perangkat yang lebih kecil */
+  }
+}
+
+/* footer */
+/* Footer Container */
+footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  color: #333;
+}
+
+/* Footer Sections */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px; /* Minimum width for each section */
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* Map styling */
+footer iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .footer-section {
+    flex: 1 1 100%; /* Each section takes full width on small screens */
+  }
+
+  footer iframe {
+    height: 200px;
+  }
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 10px;
+  background-color: #e0e0e0;
+}
+
+.additional-description {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.additional-description h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.description-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.description-item {
+  flex: 1 1 calc(25% - 20px); /* 4 items per row with space */
+  max-width: calc(25% - 20px);
+  box-sizing: border-box;
+}
+
+.description-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.detail-link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.detail-link:hover {
+  text-decoration: underline;
+}
+
+.description-item p {
+  margin-top: 10px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .description-item {
+    flex: 1 1 calc(50% - 20px); /* 2 items per row on tablets */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .description-item {
+    flex: 1 1 100%; /* 1 item per row on mobile */
+    max-width: 100%;
+  }
+}

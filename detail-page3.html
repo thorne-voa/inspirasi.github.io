@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Page 1</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      /* Gaya khusus untuk halaman detail */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* Animasi Muncul */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .content {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .content p {
+        text-align: center;
+        white-space: pre-wrap;
+      }
+      .gallery {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .photos img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        margin: 10px;
+      }
+
+      body {
+        min-height: 100vh;
+        background: url("../img/laptop.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      nav {
+        background-color: white;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav ul {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      nav li {
+        height: 50px;
+      }
+      nav a {
+        height: 100%;
+        padding: 0 30px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: black;
+      }
+      nav a:hover {
+        background-color: #f0f0f0;
+      }
+      nav li:first-child {
+        margin-right: auto;
+      }
+
+      .hero-section {
+        text-align: center;
+        margin: 50px 0;
+      }
+
+      .hero-title {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+        list-style: none;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .sidebar li {
+        width: 100%;
+      }
+      .sidebar a {
+        width: 100%;
+      }
+      .menu-button {
+        display: none;
+      }
+      @media (max-width: 800px) {
+        .hideOnMobile {
+          display: none;
+        }
+        .menu-button {
+          display: block;
+        }
+      }
+      @media (max-width: 400px) {
+        .sidebar {
+          width: 100%;
+        }
+      }
+
+      /* Detail Section */
+      .detail-container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .detail-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .detail-image {
+        flex: 1;
+      }
+
+      .detail-image img {
+        width: 100%;
+        max-width: 400px; /* Sesuaikan ukuran foto untuk desktop */
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .detail-text {
+        flex: 2;
+      }
+
+      .detail-text h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .detail-text p {
+        font-size: 1em;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #f8f8f8;
+        padding: 20px 0;
+        color: #333;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      .footer-section {
+        flex: 1;
+        padding: 0 20px;
+      }
+      .footer-section h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      .footer-section p,
+      .footer-section a {
+        font-size: 0.9em;
+        color: #666;
+      }
+      .footer-section a {
+        text-decoration: none;
+      }
+      .footer-section a:hover {
+        text-decoration: underline;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #e0e0e0;
+      }
+
+      /* Responsif */
+      @media (max-width: 800px) {
+        .detail-content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .detail-image img {
+          max-width: 100%;
+        }
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-section {
+          text-align: center;
+          padding: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="26"
+              viewBox="0 96 960 960"
+              width="26"
+            >
+              <path
+                d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Forum</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+        <li class="hideOnMobile"><a href="#">Blog</a></li>
+        <li class="hideOnMobile"><a href="#">Products</a></li>
+        <li class="hideOnMobile"><a href="#">About</a></li>
+        <li class="hideOnMobile"><a href="#">Forum</a></li>
+        <li class="hideOnMobile"><a href="#">Login</a></li>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="26"
+              viewBox="0 96 960 960"
+              width="26"
+            >
+              <path
+                d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Detail Section -->
+    <div class="detail-container">
+      <div class="detail-content">
+        <div class="detail-image">
+          <img src="assets/img/foto3.jpeg" alt="Detail Image" />
+        </div>
+        <div class="detail-text">
+          <h1>Detail Title</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            auctor, nunc id aliquet lacinia, velit nunc tincidunt nunc, ac
+            lacinia nunc nunc id justo. Sed euismod, nisl nec lacinia tincidunt,
+            nunc nunc aliquam nunc, nec lacinia nunc nunc id justo. Morbi
+            euismod libero sed libero vulputate, at congue mi malesuada.
+            Curabitur sit amet lorem id metus aliquam fermentum.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>
+            We are dedicated to providing the best experience for our users. Our
+            mission is to deliver quality content and services to our community.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@example.com</p>
+          <p>Phone: +123-456-7890</p>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="footer-section">
+          <h3>Our Location</h3>
+          <!-- Google Maps Embed -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63373.70628121163!2d107.8334758970885!3d-6.907740070956862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68d01a7552b619%3A0x239454288aaf214c!2sCinanggerang%2C%20Kec.%20Pamulihan%2C%20Kabupaten%20Sumedang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1724657215619!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
