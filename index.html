@@ -1,453 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lorem ipsum dolor sit amet.</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    /* Animasi Muncul */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorem ipsum dolor sit amet.</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-    .content {
-      text-align: center;
-      margin-top: 50px;
-    }
-    .content p {
-      text-align: center;
-      white-space: pre-wrap;
-    }
-    .gallery {
-      text-align: center;
-      margin-top: 50px;
-    }
-    .photos img {
-      width: 170px;
-      height: 200px;
-      object-fit: cover;
-      margin: 10px;
-    }
+  /* Animasi Muncul */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
 
-    body {
-      min-height: 100vh;
-      background: url("../img/foto18.jpeg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-    nav {
-      background-color: white;
-      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-    }
-    nav ul {
-      width: 100%;
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    nav li {
-      height: 50px;
-    }
-    nav a {
-      height: 100%;
-      padding: 0 30px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      color: black;
-    }
-    nav a:hover {
-      background-color: #f0f0f0;
-    }
-    nav li:first-child {
-      margin-right: auto;
-    }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .hero-section {
-      text-align: center;
-      margin: 50px 0;
-    }
+  .gallery {
+    text-align: center;
+    margin-top: 50px;
+  }
 
-    .hero-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #333;
-    }
+  .photos img {
+    width: 170px;
+    height: 200px;
+    object-fit: cover;
+    margin: 10px;
+  }
 
-    .hero-subtitle {
-      font-size: 1.2em;
-      color: #666;
-    }
+  body {
+    min-height: 100vh;
+    background: url("../img/foto18.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 250px;
-      background-color: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-      list-style: none;
+  nav {
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav li {
+    height: 50px;
+  }
+
+  nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+
+  nav a:hover {
+    background-color: #f0f0f0;
+  }
+
+  nav li:first-child {
+    margin-right: auto;
+  }
+
+  .hero-section {
+    text-align: center;
+    margin: 50px 0;
+  }
+
+  .hero-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .sidebar li {
+    width: 100%;
+  }
+
+  .sidebar a {
+    width: 100%;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .hideOnMobile {
       display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
     }
-    .sidebar li {
-      width: 100%;
-    }
-    .sidebar a {
-      width: 100%;
-    }
+
     .menu-button {
-      display: none;
+      display: block;
     }
-    @media (max-width: 800px) {
-      .hideOnMobile {
-        display: none;
-      }
-      .menu-button {
-        display: block;
-      }
-    }
-    @media (max-width: 400px) {
-      .sidebar {
-        width: 100%;
-      }
-    }
-  </style>
-  <body>
-    <!-- Navbar -->
-    <nav class="fade-in">
-      <ul class="sidebar">
-        <li onclick="hideSidebar()">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="26"
-              viewBox="0 96 960 960"
-              width="26"
-            >
-              <path
-                d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
-              />
-            </svg>
-          </a>
-        </li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Forum</a></li>
-        <li><a href="#">Login</a></li>
-      </ul>
-      <ul>
-        <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li class="hideOnMobile"><a href="#">Blog</a></li>
-        <li class="hideOnMobile"><a href="#">Products</a></li>
-        <li class="hideOnMobile"><a href="#">About</a></li>
-        <li class="hideOnMobile"><a href="#">Forum</a></li>
-        <li class="hideOnMobile"><a href="#">Login</a></li>
-        <li class="menu-button" onclick="showSidebar()">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="26"
-              viewBox="0 96 960 960"
-              width="26"
-            >
-              <path
-                d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
-              />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
+  }
 
-    <!-- Hero Section -->
-    <section class="hero fade-in">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>Lorem ipsum dolor sit amet.</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-            veniam?
-          </p>
-        </div>
-      </div>
-    </section>
+  @media (max-width: 400px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
 
-    <!-- Image and Text Card Section -->
-    <div class="card fade-in">
-      <div class="image-content">
-        <img src="assets/img/baju.jpg" alt="Descriptive Image" />
-      </div>
-      <div class="text-content">
-        <h2>Lorem ipsum</h2>
+  /* CSS untuk Bagian About Me */
+.about-me {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.about-me .content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-me h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-me p {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CSS untuk Bagian About Me */
+.about-me {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto; /* Margin otomatis untuk posisi tengah */
+  max-width: 800px; /* Lebar maksimum */
+  position: relative; /* Untuk kontrol posisi */
+}
+
+/* Container untuk konten */
+.content-container {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  top: -10px; /* Geser sedikit ke atas */
+}
+
+/* Heading */
+.about-me h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Paragraf */
+.about-me p {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .about-me h1 {
+    font-size: 1.5em;
+  }
+
+  .about-me p {
+    font-size: 0.9em;
+  }
+
+  .about-me {
+    margin: 15px auto; /* Atur margin pada layar lebih kecil */
+  }
+
+  .content-container {
+    top: -5px; /* Atur pergeseran pada layar lebih kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me h1 {
+    font-size: 1.2em;
+  }
+
+  .about-me p {
+    font-size: 0.8em;
+  }
+
+  .about-me {
+    margin: 10px auto; /* Atur margin pada layar lebih kecil */
+  }
+
+  .content-container {
+    top: 0; /* Atur pergeseran pada layar kecil */
+  }
+}
+
+
+</style>
+
+<body>
+  <!-- Navbar -->
+  <nav class="fade-in">
+    <ul class="sidebar">
+      <li onclick="hideSidebar()">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
+            <path
+              d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+          </svg>
+        </a>
+      </li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Forum</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+      <li class="hideOnMobile"><a href="#">Blog</a></li>
+      <li class="hideOnMobile"><a href="#">Products</a></li>
+      <li class="hideOnMobile"><a href="#">About</a></li>
+      <li class="hideOnMobile"><a href="#">Forum</a></li>
+      <li class="hideOnMobile"><a href="#">Login</a></li>
+      <li class="menu-button" onclick="showSidebar()">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
+            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Lorem ipsum dolor sit amet.</h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
-          voluptatum minus magnam corrupti. Nulla, autem eaque. Veniam nulla
-          dolore id autem! Minima tenetur magni nulla necessitatibus voluptate
-          optio, repellat quas dignissimos suscipit vel eveniet, quae aliquid
-          dolor amet sapiente ipsum impedit odit et praesentium autem distinctio
-          unde perspiciatis sed molestias.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          veniam?
         </p>
       </div>
     </div>
+  </section>
 
-    <div class="additional-description">
-      <h2>Deskripsi Tambahan</h2>
-      <div class="description-grid">
-        <div class="description-item">
-          <img src="assets/img/foto1.jpeg" alt="Image 1" />
-          <p>Deskripsi singkat untuk gambar 1.</p>
-          <a href="detail-page1.html" class="detail-link">Lihat Detail</a>
-        </div>
-        <div class="description-item">
-          <img src="assets/img/foto2.jpeg" alt="Image 2" />
-          <p>Deskripsi singkat untuk gambar 2.</p>
-          <a href="detail-page2.html" class="detail-link">Lihat Detail</a>
-        </div>
-        <div class="description-item">
-          <img src="assets/img/foto3.jpeg" alt="Image 3" />
-          <p>Deskripsi singkat untuk gambar 3.</p>
-          <a href="detail-page3.html" class="detail-link">Lihat Detail</a>
-        </div>
-        <div class="description-item">
-          <img src="assets/img/foto4.jpeg" alt="Image 4" />
-          <p>Deskripsi singkat untuk gambar 4.</p>
-          <a href="detail-page4.html" class="detail-link">Lihat Detail</a>
-        </div>
-      </div>
+  <!-- Image and Text Card Section -->
+  <div class="card fade-in">
+    <div class="image-content">
+      <img src="assets/img/baju.jpg" alt="Descriptive Image" />
     </div>
-
-    <!-- Galeri Foto Baru -->
-    <div class="gallery new-gallery fade-in">
-      <h2>New Photo Gallery</h2>
-      <div class="photos new-photos">
-        <img
-          src="assets/img/foto5.jpeg"
-          alt="New Image 1"
-          data-description="Deskripsi untuk New Image 1"
-        />
-        <img
-          src="assets/img/foto6.jpeg"
-          alt="New Image 2"
-          data-description="Deskripsi untuk New Image 2"
-        />
-        <img
-          src="assets/img/foto7.jpeg"
-          alt="New Image 3"
-          data-description="Deskripsi untuk New Image 3"
-        />
-        <img
-          src="assets/img/foto8.jpeg"
-          alt="New Image 3"
-          data-description="Deskripsi untuk New Image 4"
-        />
-        <img
-          src="assets/img/foto9.jpeg"
-          alt="New Image 3"
-          data-description="Deskripsi untuk New Image 4"
-        />
-        <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
-      </div>
-    </div>
-
-    <!-- Galeri Foto yang Sudah Ada -->
-    <div class="gallery fade-in">
-      <h2>Photo Gallery</h2>
-      <div class="photos">
-        <img
-          src="assets/img/foto9.jpeg"
-          alt="Image 1"
-          data-description="Deskripsi untuk Image 1"
-        />
-        <img
-          src="assets/img/foto10.jpeg"
-          alt="Image 2"
-          data-description="Deskripsi untuk Image 2"
-        />
-        <img
-          src="assets/img/foto11.jpeg"
-          alt="Image 3"
-          data-description="Deskripsi untuk Image 3"
-        />
-        <img
-          src="assets/img/foto12.jpeg"
-          alt="Image 3"
-          data-description="Deskripsi untuk Image 3"
-        />
-        <img
-          src="assets/img/foto16.jpeg"
-          alt="Image 3"
-          data-description="Deskripsi untuk Image 3"
-        />
-        <img
-          src="assets/img/foto17.jpeg"
-          alt="Image 3"
-          data-description="Deskripsi untuk Image 3"
-        />
-        <img
-          src="assets/img/foto15.jpeg"
-          alt="Image 3"
-          data-description="Deskripsi untuk Image 3"
-        />
-        <img
-          src="assets/img/foto16.jpeg"
-          alt="Image 3"
-          data-description="Deskripsi untuk Image 3"
-        />
-        <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal" id="photoModal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <img id="modalImage" src="" alt="Modal Image" />
-        <p id="modalDescription"></p>
-      </div>
-    </div>
-
-    <!-- Tim Section -->
-    <section class="team fade-in">
-      <h2>Meet Our Team</h2>
-      <div class="team-container">
-        <div class="team-member">
-          <div class="team-member-content">
-            <div class="team-member-photo">
-              <img src="assets/img/foto12.jpeg" alt="Member 1" />
-            </div>
-            <div class="team-member-text">
-              <h3>Member Name 1</h3>
-              <p class="role">Role or Position</p>
-              <p class="description">
-                Deskripsi singkat tentang Member Name 1. Ini bisa mencakup
-                pengalaman kerja, keahlian, atau kontribusi utama mereka.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="team-member-content">
-            <div class="team-member-photo">
-              <img src="assets/img/foto13.jpeg" alt="Member 2" />
-            </div>
-            <div class="team-member-text">
-              <h3>Member Name 2</h3>
-              <p class="role">Role or Position</p>
-              <p class="description">
-                Deskripsi singkat tentang Member Name 2. Ini bisa mencakup
-                pengalaman kerja, keahlian, atau kontribusi utama mereka.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="team-member-content">
-            <div class="team-member-photo">
-              <img src="assets/img/foto14.jpeg" alt="Member 3" />
-            </div>
-            <div class="team-member-text">
-              <h3>Member Name 3</h3>
-              <p class="role">Role or Position</p>
-              <p class="description">
-                Deskripsi singkat tentang Member Name 3. Ini bisa mencakup
-                pengalaman kerja, keahlian, atau kontribusi utama mereka.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="team-member-content">
-            <div class="team-member-photo">
-              <img src="assets/img/foto1.jpeg" alt="Member 3" />
-            </div>
-            <div class="team-member-text">
-              <h3>Member Name 3</h3>
-              <p class="role">Role or Position</p>
-              <p class="description">
-                Deskripsi singkat tentang Member Name 3. Ini bisa mencakup
-                pengalaman kerja, keahlian, atau kontribusi utama mereka.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Tambahkan lebih banyak anggota tim sesuai kebutuhan -->
-      </div>
-    </section>
-
-    <!-- Bagian About Me -->
-    <div class="content fade-in">
-      <h1>About Me</h1>
+    <div class="text-content">
+      <h2>Lorem ipsum</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor,
-        nunc id aliquet lacinia, velit nunc tincidunt nunc, ac lacinia nunc nunc
-        id justo. Sed euismod, nisl nec lacinia tincidunt, nunc nunc aliquam
-        nunc, nec lacinia nunc nunc id justo.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
+        voluptatum minus magnam corrupti. Nulla, autem eaque. Veniam nulla
+        dolore id autem! Minima tenetur magni nulla necessitatibus voluptate
+        optio, repellat quas dignissimos suscipit vel eveniet, quae aliquid
+        dolor amet sapiente ipsum impedit odit et praesentium autem distinctio
+        unde perspiciatis sed molestias.
       </p>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>About Us</h3>
-          <p>
-            We are dedicated to providing the best experience for our users. Our
-            mission is to deliver quality content and services to our community.
-          </p>
-        </div>
-        <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@example.com</p>
-          <p>Phone: +123-456-7890</p>
-        </div>
-        <div class="footer-section">
-          <h3>Follow Us</h3>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-          <a href="#">Instagram</a>
-        </div>
-        <div class="footer-section">
-          <h3>Our Location</h3>
-          <!-- Google Maps Embed -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63373.70628121163!2d107.8334758970885!3d-6.907740070956862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68d01a7552b619%3A0x239454288aaf214c!2sCinanggerang%2C%20Kec.%20Pamulihan%2C%20Kabupaten%20Sumedang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1724657215619!5m2!1sid!2sid"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+  <div class="additional-description">
+    <h2>Deskripsi Tambahan</h2>
+    <div class="description-grid">
+      <div class="description-item">
+        <img src="assets/img/foto1.jpeg" alt="Image 1" />
+        <p>Deskripsi singkat untuk gambar 1.</p>
+        <a href="detail-page1.html" class="detail-link">Lihat Detail</a>
+      </div>
+      <div class="description-item">
+        <img src="assets/img/foto2.jpeg" alt="Image 2" />
+        <p>Deskripsi singkat untuk gambar 2.</p>
+        <a href="detail-page2.html" class="detail-link">Lihat Detail</a>
+      </div>
+      <div class="description-item">
+        <img src="assets/img/foto3.jpeg" alt="Image 3" />
+        <p>Deskripsi singkat untuk gambar 3.</p>
+        <a href="detail-page3.html" class="detail-link">Lihat Detail</a>
+      </div>
+      <div class="description-item">
+        <img src="assets/img/foto4.jpeg" alt="Image 4" />
+        <p>Deskripsi singkat untuk gambar 4.</p>
+        <a href="detail-page4.html" class="detail-link">Lihat Detail</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galeri Foto Baru -->
+  <div class="gallery new-gallery fade-in">
+    <h2>New Photo Gallery</h2>
+    <div class="photos new-photos">
+      <img src="assets/img/foto5.jpeg" alt="New Image 1" data-description="Deskripsi untuk New Image 1" />
+      <img src="assets/img/foto6.jpeg" alt="New Image 2" data-description="Deskripsi untuk New Image 2" />
+      <img src="assets/img/foto7.jpeg" alt="New Image 3" data-description="Deskripsi untuk New Image 3" />
+      <img src="assets/img/foto8.jpeg" alt="New Image 3" data-description="Deskripsi untuk New Image 4" />
+      <img src="assets/img/foto9.jpeg" alt="New Image 3" data-description="Deskripsi untuk New Image 4" />
+      <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+    </div>
+  </div>
+
+  <!-- Galeri Foto yang Sudah Ada -->
+  <div class="gallery fade-in">
+    <h2>Photo Gallery</h2>
+    <div class="photos">
+      <img src="assets/img/foto9.jpeg" alt="Image 1" data-description="Deskripsi untuk Image 1" />
+      <img src="assets/img/foto10.jpeg" alt="Image 2" data-description="Deskripsi untuk Image 2" />
+      <img src="assets/img/foto11.jpeg" alt="Image 3" data-description="Deskripsi untuk Image 3" />
+      <img src="assets/img/foto12.jpeg" alt="Image 3" data-description="Deskripsi untuk Image 3" />
+      <img src="assets/img/foto16.jpeg" alt="Image 3" data-description="Deskripsi untuk Image 3" />
+      <img src="assets/img/foto17.jpeg" alt="Image 3" data-description="Deskripsi untuk Image 3" />
+      <img src="assets/img/foto15.jpeg" alt="Image 3" data-description="Deskripsi untuk Image 3" />
+      <img src="assets/img/foto16.jpeg" alt="Image 3" data-description="Deskripsi untuk Image 3" />
+      <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="photoModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="Modal Image" />
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <!-- Tim Section -->
+  <section class="team fade-in">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+      <div class="team-member">
+        <div class="team-member-content">
+          <div class="team-member-photo">
+            <img src="assets/img/foto12.jpeg" alt="Member 1" />
+          </div>
+          <div class="team-member-text">
+            <h3>Member Name 1</h3>
+            <p class="role">Role or Position</p>
+            <p class="description">
+              Deskripsi singkat tentang Member Name 1. Ini bisa mencakup
+              pengalaman kerja, keahlian, atau kontribusi utama mereka.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Your Website. All rights reserved.</p>
+      <div class="team-member">
+        <div class="team-member-content">
+          <div class="team-member-photo">
+            <img src="assets/img/foto13.jpeg" alt="Member 2" />
+          </div>
+          <div class="team-member-text">
+            <h3>Member Name 2</h3>
+            <p class="role">Role or Position</p>
+            <p class="description">
+              Deskripsi singkat tentang Member Name 2. Ini bisa mencakup
+              pengalaman kerja, keahlian, atau kontribusi utama mereka.
+            </p>
+          </div>
+        </div>
       </div>
-    </footer>
+      <div class="team-member">
+        <div class="team-member-content">
+          <div class="team-member-photo">
+            <img src="assets/img/foto14.jpeg" alt="Member 3" />
+          </div>
+          <div class="team-member-text">
+            <h3>Member Name 3</h3>
+            <p class="role">Role or Position</p>
+            <p class="description">
+              Deskripsi singkat tentang Member Name 3. Ini bisa mencakup
+              pengalaman kerja, keahlian, atau kontribusi utama mereka.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-content">
+          <div class="team-member-photo">
+            <img src="assets/img/foto1.jpeg" alt="Member 3" />
+          </div>
+          <div class="team-member-text">
+            <h3>Member Name 3</h3>
+            <p class="role">Role or Position</p>
+            <p class="description">
+              Deskripsi singkat tentang Member Name 3. Ini bisa mencakup
+              pengalaman kerja, keahlian, atau kontribusi utama mereka.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Tambahkan lebih banyak anggota tim sesuai kebutuhan -->
+    </div>
+  </section>
 
-    <script src="assets/js/script.js"></script>
-  </body>
+  <section class="about-me fade-in">
+    <div class="content-container">
+        <h1>About Me</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor,
+            nunc id aliquet lacinia, velit nunc tincidunt nunc, ac lacinia nunc nunc
+            id justo. Sed euismod, nisl nec lacinia tincidunt, nunc nunc aliquam
+            nunc, nec lacinia nunc nunc id justo.
+        </p>
+    </div>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>
+          We are dedicated to providing the best experience for our users. Our
+          mission is to deliver quality content and services to our community.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: contact@example.com</p>
+        <p>Phone: +123-456-7890</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+      </div>
+      <div class="footer-section">
+        <h3>Our Location</h3>
+        <!-- Google Maps Embed -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63373.70628121163!2d107.8334758970885!3d-6.907740070956862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68d01a7552b619%3A0x239454288aaf214c!2sCinanggerang%2C%20Kec.%20Pamulihan%2C%20Kabupaten%20Sumedang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1724657215619!5m2!1sid!2sid"
+          width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
